@@ -1,0 +1,53 @@
+{
+    "key": "teamlead-task",
+    "name": "Teamlead task",
+    "description": "Teamlead task",
+    "baseUrl": "{{localBaseUrl}}",
+    "authentication": {
+        "type": "jwt"
+    },
+    "lifecycle": {
+        "installed": "/installed"
+    },
+    "scopes": [
+        "READ"
+    ],
+    "modules": {
+        "generalPages": [
+            {
+                "key": "teamlead-task-page-jira",
+                "location": "system.top.navigation.bar",
+                "name": {
+                    "value": "Teamlead Task"
+                },
+                "url": "/teamlead-task",
+                "conditions": [{
+                    "condition": "user_is_logged_in"
+                }]
+            }
+        ],
+        "configurePage": {
+            "url": "teamlead-task-settings-page",
+            "name": {
+              "value": "Settings"
+            },
+            "key": "teamlead-task-settings-page"
+          },
+          "webPanels": [
+              {
+                "url": "teamlead-task-web-panel",
+                "location": "atl.jira.view.issue.right.context",
+                "layout": {
+                    "width": "10px",
+                    "height": "100%"
+                },
+                "weight": 50,
+                "supportNative": false,
+                "name": {
+                    "value": "Teamlead Task Web Panel"
+                },
+                "key": "teamlead-task-web-panel"
+              }
+          ]
+    }
+}
